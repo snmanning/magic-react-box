@@ -5,26 +5,31 @@ class App extends Component {
     constructor(props) {
     super(props);
     this.state = {
-      color: "blue"
+      backgroundColor: 'blue',
     };
   }
 
   red() {
     this.setState({
-      color: "red"
+      backgroundColor: 'red',
     })
   }
 
   green() {
     this.setState({
-      color: "green"
-    })
+      backgroundColor: 'green',    })
   }
 
   render() {
+    const style = {
+            boxStyle: {
+              backgroundColor: this.state.backgroundColor,
+            }
+          };
+    const {boxStyle} = style;
     return (
       <div className="App">
-          <span className="box">{this.state.color}</span>
+          <span className="box" style={boxStyle}>{this.state.backgroundColor}</span>
           <button onClick={this.red.bind(this)}> Red </button>
           <button onClick={this.green.bind(this)}> Green </button>
       </div>

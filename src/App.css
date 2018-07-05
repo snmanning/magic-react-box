@@ -1,9 +1,25 @@
 .App {
+  display: block;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
 .App-box {
   width: 250px;
   height: 250px;
+  background-color: blue;
+  border: 1px solid yellow;
+}
+
+.App-red {
+  background-color: red;
+}
+
+.App-green {
+  background-color: green;
+}
+
+.App-blue {
   background-color: blue;
 }
