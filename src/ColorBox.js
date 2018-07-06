@@ -29,10 +29,17 @@ class ColorBox extends Component {
           };
         const {boxStyle} = style;
         return (
-            <div className="App">
-                <span className="box" style={boxStyle}>{this.state.backgroundColor}</span>
-                <button onClick={this.red.bind(this)}> Red </button>
-                <button onClick={this.green.bind(this)}> Green </button>
+            <div className="ColorBox">
+                {this.props.title ? <h1 className='ColorBox-title'>{this.props.title}</h1> : null}
+                <p className="ColorBox-box" style={boxStyle}>{this.state.backgroundColor}</p>
+                <section className='COlorBox-buttons'>
+                    <button onClick={this.red.bind(this)}> Red </button>
+                    <button onClick={this.green.bind(this)}> Green </button>
+                </section>
+                <section className="ColorBox-input">
+                    <input></input>
+                    <input></input>
+                </section>
             </div>
         )
     }

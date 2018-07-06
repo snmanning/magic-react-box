@@ -7,8 +7,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        < ColorBox />
-        < ColorBox />
+        < ColorBox title='Pick a Color'/>
       </div>
     );
   }
