@@ -5,25 +5,33 @@ class ColorBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          backgroundColor: `${#bada55}`,
+          backgroundColor: '#000000',
+          firstColor: '#000000',
+          secondColor: '#ff0000',
         };
       }
-    
-      changeColor(evt) {
+
+      changeColor1(evt) {
         this.setState({
-          backgroundColor: parseInt(evt.target.value, 16),
+          firstColor: (evt.target.value),
+        })
+      }
+    
+      changeColor2(evt) {
+        this.setState({
+          secondColor: (evt.target.value),
         })
       }
     
       hex1() {
         this.setState({
-          backgroundColor: 'green',   
+          backgroundColor: this.state.firstColor,  
          })
       }
 
       hex2() {
         this.setState({
-
+          backgroundColor: this.state.secondColor,
         })
       }
     
@@ -38,27 +46,28 @@ class ColorBox extends Component {
             <div className='ColorBox'>
                 {this.props.title ? <h1 className='ColorBox-title'>{this.props.title}</h1> : null}
                 <p className='ColorBox-box' style={boxStyle}>{this.state.backgroundColor}</p>
-                <section className='ColorBox-buttons'>
-                    <button onClick={this.hex1.bind(this)}> Color 1 </button>
-                    <button onClick={this.hex2.bind(this)}> Color 2 </button>
+                <section >
+                    <button className='ColorBox-buttons' onClick={this.hex1.bind(this)}> Color 1 </button>
+                    <button className='ColorBox-buttons' onClick={this.hex2.bind(this)}> Color 2 </button>
                 </section>
                 <section className='ColorBox-input'>
-                    <label for='ColorBox-hex1'> Hex Color 1 Input </label> <br/>
+                  {/* {this.props.instructions ? <p className='COlorBox-instr'>{this.props.instructions}</p> : null} */}
+                    <label className='ColorBox-label' htmlFor='ColorBox-hex1'> Hex Color 1 Input: </label>
                     <input id='ColorBox-hex1'
                             className='ColorBox-hex' 
                             type='color' 
-                            pattern='^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$'
+                            pattern='^#+([a-fA-F0-9]{6})$'
                             placeholder='#hex color'
-                           onChange={this.changeColor.bind(this)} >
+                           onChange={this.changeColor1.bind(this)} >
                     </input>
-                    <label for='ColorBox-hex1'> Hex Color 2 Input </label> <br/>
+                    <label className='ColorBox-lebel' htmlFor='ColorBox-hex1'> Hex Color 2 Input: </label>
                     <input id='ColorBox-hex2'
                             className='ColorBox-hex' 
                             label='Hex Color 2'
-                            type='color' 
-                            pattern='^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$'
+                            type='text' 
+                            pattern='^#+([a-fA-F0-9]{6})$'
                             placeholder='#hex color'
-                           onChange={this.changeColor.bind(this)}>
+                           onChange={this.changeColor2.bind(this)}>
                     </input>
                 </section>
             </div>
